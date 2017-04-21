@@ -6,10 +6,15 @@
     <link rel="stylesheet" type="text/css" href="assets/lib/semantic-ui/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <script src="assets/lib/angular/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="assets/lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="assets/lib/semantic-ui/semantic.min.js"></script>
 </head>
-<body>
-    
+<body ng-app="socialNetwork">
+    <div class="wrapper">
+        <ng-view></ng-view>
+    </div>
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
 </body>
 </html>
