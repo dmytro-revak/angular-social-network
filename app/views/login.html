@@ -1,10 +1,10 @@
 <div class="ui middle aligned center aligned column grid">
     <form class="ui six wide column massive form blue login-form">
-        <div class="field">
+        <div class="field" ng-class="{'error-field': login.isLoginIncorrect}">
             <label class="login-form__label">Login</label>
             <input type="text" name="login" placeholder="Login" ng-model="login.login">
         </div>
-        <div class="field">
+        <div class="field" ng-class="{'error-field': login.isPasswordIncorrect}">
             <label class="login-form__label">Password</label>
             <input type="password" name="password" placeholder="Password" ng-model="login.password">
         </div>
