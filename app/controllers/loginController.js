@@ -1,7 +1,6 @@
 socialNetworkApp.controller('loginController', ['usersService', '$location', function (usersService, $location) {
     var vm = this;
 
-
     vm.verifyEnteredParameters = function () {
         var usersList = usersService.usersList;
         for (var i = 0; i < usersList.length; i++) {
