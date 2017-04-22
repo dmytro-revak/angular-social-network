@@ -3,7 +3,7 @@ socialNetworkApp.config(function($routeProvider) {
     .when('/', {
         redirectTo: '/login'
     })
-    .when('userPage', {
+    .when('/userPage', {
         templateUrl : 'app/views/userPage.html'
     })
     .when('/login', {

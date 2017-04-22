@@ -1,6 +1,6 @@
 [
     {
-        "userName": "developer",
+        "login": "dev",
         "password": "123",
         "firstName": "Dmytro",
         "lastName": "Revak",
@@ -8,10 +8,7 @@
         "country": "Ukraine",
         "city": "Lviv",
         "skype": "dmytro-revak",
-        "github": "dmytro-revak",
+        "github": "developer-dmytro",
         "description" : "Hi, I am a nice guy"
-    },
-    {
-
     }
 ]
