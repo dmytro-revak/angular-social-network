@@ -11,6 +11,11 @@ socialNetworkApp.config(function($routeProvider) {
         controller: 'loginController',
         controllerAs: 'login'
     })
+    .when('/register', {
+        templateUrl : 'app/views/register.html',
+        controller: 'registerController',
+        controllerAs: 'register'
+    })
     .otherwise({
         redirectTo: '/'
     });

@@ -3,5 +3,12 @@ socialNetworkApp.factory('usersService', function ($http) {
     $http.get("./users.json").then(function(response) {
         usersService.usersList = response.data;
     });
+
+    usersService.addUser = function (user) {
+        usersService.usersList.push(user);
+    };
+
+    usersService.prototype = 'dfs';
+
     return usersService;
 });
