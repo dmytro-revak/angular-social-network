@@ -1,0 +1,16 @@
+html, body, .ui.grid, .container{
+    height: 100%;
+}
+
+body {
+    background-color: #d6d6d6;
+}
+
+.login-form {
+    border-radius: 10px;
+}
+
+.form.login-form label.login-form__label {
+    color: #fff;
+    margin-bottom: 10px;
+}
