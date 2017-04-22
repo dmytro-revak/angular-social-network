@@ -1,5 +1,17 @@
 [
     {
+        "userName": "developer",
+        "password": "123",
+        "firstName": "Dmytro",
+        "lastName": "Revak",
+        "phone": "123 456789",
+        "country": "Ukraine",
+        "city": "Lviv",
+        "skype": "dmytro-revak",
+        "github": "dmytro-revak",
+        "description" : "Hi, I am a nice guy"
+    },
+    {
 
     }
 ]
