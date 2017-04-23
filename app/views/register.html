@@ -16,7 +16,7 @@
             <label class="page-form__label">Password</label>
             <input type="text" name="password" placeholder="123..." required ng-model="register.newUser.password">
         </div>
-        <button class="ui big positive button" type="button" ng-click="register.registerUser()">Register</button>
+        <button class="ui big positive button" type="button" ng-click="register.registerUser(registerForm.$valid)">Register</button>
         <button class="ui big secondary button" type="button" ng-click="register.returnToLogin()">Cancel</button>
     </form>
 </div>
