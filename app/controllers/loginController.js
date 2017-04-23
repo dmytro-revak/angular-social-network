@@ -26,14 +26,4 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
         $location.path('/register');
     };
 
-
-
-
-console.log(usersService);
-    // usersService.addUser({aaa: 'asdf'});
-
-
-
-
-
 }]);

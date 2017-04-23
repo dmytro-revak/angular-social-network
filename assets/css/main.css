@@ -6,11 +6,11 @@ body {
     background-color: #d6d6d6;
 }
 
-.login-form {
+.page-form {
     border-radius: 10px;
 }
 
-.form.login-form label.login-form__label {
+.form.page-form label.page-form__label {
     color: #fff;
     margin-bottom: 10px;
 }
@@ -20,7 +20,7 @@ body {
     box-shadow: 0 0 10px 5px #9f3a38;
 }
 
-.form .error-field label.login-form__label  {
+.form .error-field label.page-form__label  {
     color: #9f3a38;
 }
 
