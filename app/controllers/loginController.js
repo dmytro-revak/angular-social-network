@@ -7,13 +7,19 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
     vm.verifyEnteredParameters = function () {
         var usersList = usersService.usersList;
         for (var i = 0; i < usersList.length; i++) {
+
             var currentUser = usersList[i];
+
             vm.isLoginCorrect = (currentUser.login === vm.login);
             if (!vm.isLoginCorrect) {
                 vm.isPasswordCorrect = false;
                 continue;
             }
+
             vm.isPasswordCorrect = (currentUser.password === vm.password);
+            if (vm.isPasswordCorrect) {
+                usersService.activeUser = currentUser;
+            }
             break;
         }
         return (vm.isLoginCorrect && vm.isPasswordCorrect);

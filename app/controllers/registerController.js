@@ -9,6 +9,8 @@ socialNetworkApp.controller('registerController', ['usersService', '$location', 
         }
     };
 
+    console.log(usersService.activeUser);
+
     vm.returnToLogin = function () {
         $location.path('/login');
     };

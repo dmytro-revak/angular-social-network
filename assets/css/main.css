@@ -1,5 +1,5 @@
 html, body, .ui.grid, .container{
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -22,6 +22,11 @@ body {
 
 .form .error-field label.page-form__label  {
     color: #9f3a38;
+}
+
+.user-page-heading,
+.column.grid.user-page-info {
+    padding: 25px;
 }
 
 
