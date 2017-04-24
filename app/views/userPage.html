@@ -1,5 +1,5 @@
 <div class="ui secondary menu user-page-heading">
-    <h1 class="ui header">Hello</h1>
+    <h1 class="ui header">Hello {{userPage.activeUser.firstName}}</h1>
     <div class="right menu">
         <button class="ui button black">Logout</button>
     </div>
@@ -8,28 +8,28 @@
     <div class="row">
         <div class="column">sdf</div>
         <div class="column">
-            <h2 class="ui header">PPP</h2>
-            <h4 class="ui header">Phone</h4>
-            <h4 class="ui header">City</h4>
-            <h4 class="ui header">Country</h4>
-            <h4 class="ui header">GitHub</h4>
-            <h4 class="ui header">Skype</h4>
-            <h4 class="ui header">Description</h4>
+            <h2 class="ui header">{{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}</h2>
+            <h4 class="ui header" ng-show="userPage.activeUser.phone">Phone: {{userPage.activeUser.phone}}</h4>
+            <h4 class="ui header" ng-show="userPage.activeUser.city">City: {{userPage.activeUser.city}}</h4>
+            <h4 class="ui header" ng-show="userPage.activeUser.country">Country: {{userPage.activeUser.country}}</h4>
+            <h4 class="ui header" ng-show="userPage.activeUser.github">GitHub: {{userPage.activeUser.github}}</h4>
+            <h4 class="ui header" ng-show="userPage.activeUser.skype">Skype: {{userPage.activeUser.skype}}</h4>
+            <h4 class="ui header" ng-show="userPage.activeUser.description">Description: {{userPage.activeUser.description}}</h4>
             <button type="submit" class="ui right floated blue button">Add information</button>
             <form class="ui form">
                 <div class="field">
                     <label>Topic</label>
-                    <input type="text" name="Topic">
+                    <input type="text" name="Topic" ng-model="userPage.topic">
                 </div>
                 <div class="field">
                     <label>Message</label>
-                    <textarea name="message"></textarea>
+                    <textarea name="message" ng-model="userPage.message"></textarea>
                 </div>
-                <button type="button" class="ui green button">Send</button>
+                <button type="button" class="ui green button" ng-click="userPage.sendtheMessage()">Send</button>
             </form>
-            <div class="ui message">
-                <div class="header">k;l</div>
-                <p>sdf</p>
+            <div class="ui message" ng-repeat="message in userPage.activeUser.messages">
+                <div class="header">{{message.topic}}</div>
+                <p>{{message.message}}</p>
             </div>
         </div>
     </div>

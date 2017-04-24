@@ -11,5 +11,9 @@ socialNetworkApp.factory('usersService', function ($http) {
         usersService.usersList.push(user);
     };
 
+    usersService.addNewUserMessage = function(message) {
+        usersService.activeUser.messages.push(message);
+    }
+
     return usersService;
 });

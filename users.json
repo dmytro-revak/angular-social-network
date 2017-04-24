@@ -9,6 +9,7 @@
         "city": "Lviv",
         "skype": "dmytro-revak",
         "github": "developer-dmytro",
-        "description" : "Hi, I am a nice guy"
+        "description" : "Hi, I am a nice guy",
+        "messages": []
     }
 ]
