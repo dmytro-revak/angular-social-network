@@ -11,9 +11,10 @@ socialNetworkApp.controller('userPageController', ['usersService', function(user
         usersService.addNewUserMessage(vm.newMessage);
     };
 
-        // debugger
+    vm.isAddInfoModalShow = false;
+
     vm.addUserInfo = function() {
-        alert(1);
+        vm.isAddInfoModalShow = true;
     };
 
 }]);
