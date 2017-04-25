@@ -6,8 +6,19 @@
 </div>
 <div class="ui two column grid user-page-info">
     <div class="row">
-        <div class="column">sdf</div>
-        <div class="column">
+        <div class="four wide column">
+            <div class="row">
+                <figure>
+                    <img class="ui medium circular image" src="http://placehold.it/100x100">
+                </figure>
+                <button type="button">Change</button>
+            </div>
+            <div class="friends">
+                <h3 class="ui header">Friends:</h3>
+                <button type="button">Add friends</button>
+            </div>
+        </div>
+        <div class="ten wide right floated column">
             <h2 class="ui header">{{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}</h2>
             <h4 class="ui header" ng-show="userPage.activeUser.phone">Phone: {{userPage.activeUser.phone}}</h4>
             <h4 class="ui header" ng-show="userPage.activeUser.city">City: {{userPage.activeUser.city}}</h4>
