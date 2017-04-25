@@ -9,7 +9,6 @@ socialNetworkApp.controller('userPageController', ['usersService', function(user
             topic: vm.topic,
             message: vm.message
         }
-        debugger
         usersService.addNewUserMessage(vm.newMessage);
     }
 
