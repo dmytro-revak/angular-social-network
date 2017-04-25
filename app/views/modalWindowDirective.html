@@ -1,33 +1,33 @@
-<div class='ng-modal' ng-show='true'>
-    <div class='ng-modal-overlay' ng-click='hideModal()'></div>
-    <div class='ng-modal-dialog' ng-style='dialogStyle'>
+<div class='ng-modal' ng-show=''>
+    <div class='ng-modal-overlay'></div>
+    <div class='ng-modal-dialog'>
         <div class='ng-modal-dialog-content'>
             <form class="ui form">
                 <div class="field">
                     <label>Phone number</label>
-                        <input type="text" name="phoneNumber" placeholder="123...">
+                    <input type="text" name="phoneNumber" placeholder="123..." ng-model="phone">
                 </div>
                 <div class="field">
                     <label>Country</label>
-                    <input type="text" name="country" placeholder="Country">
+                    <input type="text" name="country" placeholder="Country" ng-model="country">
                 </div>
                 <div class="field">
                     <label>City</label>
-                    <input type="text" name="city" placeholder="City">
+                    <input type="text" name="city" placeholder="City" ng-model="city">
                 </div>
                 <div class="field">
                     <label>Skype</label>
-                    <input type="text" name="skype" placeholder="Skype">
+                    <input type="text" name="skype" placeholder="Skype" ng-model="skype">
                 </div>
                 <div class="field">
                     <label>GitHub</label>
-                    <input type="text" name="gitHub" placeholder="GitHub">
+                    <input type="text" name="gitHub" placeholder="GitHub" ng-model="github">
                 </div>
                 <div class="field">
-                    <label>Country</label>
-                    <textarea name="description" rows="2" placeholder="About yourself"></textarea>
+                    <label>Description</label>
+                    <textarea name="description" rows="2" placeholder="About yourself" ng-model="description"></textarea>
                 </div>
-                <button class="ui green button" type="button">Save</button>
+                <button class="ui green button" type="button" ng-click="saveUserInfo()">Save</button>
             </form>
         </div>
     </div>

@@ -15,7 +15,7 @@
             <h4 class="ui header" ng-show="userPage.activeUser.github">GitHub: {{userPage.activeUser.github}}</h4>
             <h4 class="ui header" ng-show="userPage.activeUser.skype">Skype: {{userPage.activeUser.skype}}</h4>
             <h4 class="ui header" ng-show="userPage.activeUser.description">Description: {{userPage.activeUser.description}}</h4>
-            <button type="submit" class="ui right floated blue button">Add information</button>
+            <button type="button" class="ui blue button" ng-click="userPage.addUserInfo()">Add information</button>
             <form class="ui form">
                 <div class="field">
                     <label>Topic</label>

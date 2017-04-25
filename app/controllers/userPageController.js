@@ -3,14 +3,17 @@ socialNetworkApp.controller('userPageController', ['usersService', function(user
 
     vm.activeUser = usersService.activeUser;
 
-
     vm.sendtheMessage = function() {
         vm.newMessage = {
             topic: vm.topic,
             message: vm.message
         }
         usersService.addNewUserMessage(vm.newMessage);
-    }
+    };
 
+        // debugger
+    vm.addUserInfo = function() {
+        alert(1);
+    };
 
 }]);

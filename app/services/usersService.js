@@ -6,7 +6,7 @@ socialNetworkApp.factory('usersService', function ($http) {
     });
 
     usersService.activeUser;
-
+    
     usersService.addUser = function (user) {
         usersService.usersList.push(user);
     };
