@@ -4,11 +4,11 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
     vm.isLoginCorrect = true;
     vm.isPasswordCorrect = true;
 
-
     vm.verifyUser = function () {
-        debugger
         vm.verifiedUser = usersService.verifyLogin(vm.login);
+        vm.isLoginCorrect = Boolean(vm.verifiedUser);
         vm.isVerificationCorrect = usersService.verifyUserPassword(vm.verifiedUser, vm.password);
+        vm.isPasswordCorrect = Boolean(vm.isVerificationCorrect);
         if (vm.isVerificationCorrect) {
             $location.path('/userPage');
         }

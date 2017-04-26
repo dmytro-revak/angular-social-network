@@ -6,25 +6,28 @@ socialNetworkApp.factory('usersService', function ($http) {
         usersService.usersList = response.data;
     });
 
-    usersService.activeUser;
+    usersService.activeUser = {};
     
+    usersService.verifyLogin = function (login) {
+        var verifiedUser = null;
+        for (var i = 0; i < usersService.usersList.length; i++) {
+            var currentUser = usersService.usersList[i];
+            var currentUserLogin = currentUser.login;
+            if (login === currentUserLogin) {
+                verifiedUser = currentUser;
+                break;
+            }
+        }
+        return verifiedUser;
+    };
+
     usersService.addUser = function (user) {
         usersService.usersList.push(user);
     };
 
-    usersService.verifyLogin = function (login) {
-        var verifiedUser = null;
-        usersService.usersList.forEach(function (user) {
-            var currentUserLogin = user.login;
-            if (login === currentUserLogin) {
-                verifiedUser = user;
-            }
-        });
-        return verifiedUser;
-    };
-
-    usersService.verifyUserPassword = function (user, userPassword) {
-        return (user.password === userPassword);
+    usersService.verifyUserPassword = function (user, enteredPassword) {
+        var userPassword = (user) ? user.password : '';
+        return (userPassword === enteredPassword);
     };
 
     usersService.addNewUserMessage = function(message) {
