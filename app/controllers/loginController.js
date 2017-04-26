@@ -4,36 +4,14 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
     vm.isLoginCorrect = true;
     vm.isPasswordCorrect = true;
 
-    vm.verifyEnteredParameters = function () {
-        var usersList = usersService.usersList;
-        for (var i = 0; i < usersList.length; i++) {
-
-            var currentUser = usersList[i];
-
-            vm.isLoginCorrect = (currentUser.login === vm.login);
-            if (!vm.isLoginCorrect) {
-                vm.isPasswordCorrect = false;
-                continue;
-            }
-
-            vm.isPasswordCorrect = (currentUser.password === vm.password);
-            if (vm.isPasswordCorrect) {
-                usersService.activeUser = currentUser;
-            }
-            break;
-        }
-        return (vm.isLoginCorrect && vm.isPasswordCorrect);
-    };
 
     vm.verifyUser = function () {
-        var doesUserOccur = vm.verifyEnteredParameters();
-        if (doesUserOccur) {
+        debugger
+        vm.verifiedUser = usersService.verifyLogin(vm.login);
+        vm.isVerificationCorrect = usersService.verifyUserPassword(vm.verifiedUser, vm.password);
+        if (vm.isVerificationCorrect) {
             $location.path('/userPage');
         }
-    };
-
-    vm.registerUser = function () {
-        $location.path('/register');
     };
 
 }]);
