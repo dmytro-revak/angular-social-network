@@ -1,9 +1,9 @@
-html, body, .ui.grid, .container{
-    min-height: 100%;
-}
-
 body {
     background-color: #d6d6d6;
+}
+
+.login-wrapper {
+    height: 100%;
 }
 
 .page-form {
