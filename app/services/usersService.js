@@ -21,13 +21,13 @@ socialNetworkApp.factory('usersService', function ($http) {
         return verifiedUser;
     };
 
-    usersService.addUser = function (user) {
-        usersService.usersList.push(user);
-    };
-
     usersService.verifyUserPassword = function (user, enteredPassword) {
         var userPassword = (user) ? user.password : '';
         return (userPassword === enteredPassword);
+    };
+
+    usersService.addUser = function (user) {
+        usersService.usersList.push(user);
     };
 
     usersService.addNewUserMessage = function(message) {
@@ -35,15 +35,15 @@ socialNetworkApp.factory('usersService', function ($http) {
     };
 
     usersService.saveUsersListToStorage = function () {
-        sessionStorage.setItem('usersList', usersService.usersList);
+        localStorage.setItem('usersList', usersService.usersList);
     };
 
     usersService.saveActiveUserToStorage = function () {
-        sessionStorage.setItem('activeUser', usersService.activeUser);
+        localStorage.setItem('activeUser', usersService.activeUser);
     };
 
     usersService.getItemFromStorage = function (item) {
-        return sessionStorage.getItem(item);
+        return localStorage.getItem(item);
     };
 
     return usersService;

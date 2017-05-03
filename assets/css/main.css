@@ -2,7 +2,8 @@ body {
     background-color: #d6d6d6;
 }
 
-.login-wrapper {
+.login-wrapper,
+.register-wrapper {
     height: 100%;
 }
 

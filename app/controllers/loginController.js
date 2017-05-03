@@ -14,4 +14,8 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
         }
     };
 
+    vm.registerUser = function () {
+        $location.path('/register');
+    }
+
 }]);

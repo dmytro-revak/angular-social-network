@@ -15,13 +15,24 @@ socialNetworkApp.controller('registerController', ['usersService', '$location', 
             description: '',
             messages: []
         };
-        
-        if (isFormValid) {
+
+
+        if ( isFormValid && !vm.verificationDoesUserOccur() ) {
             usersService.addUser(vm.newUser);
+            usersService.saveUsersListToStorage();
             $location.path('/login');
             vm.newUser = {};
         }
     };
+
+    vm.verificationDoesUserOccur = function () {
+        var doesUserOccur = usersService.verifyLogin(vm.login);
+        if (doesUserOccur) {
+            debugger
+        }
+        return doesUserOccur;
+    };
+            registerForm.firstName.$setValidity(false);
 
     vm.returnToLogin = function () {
         $location.path('/login');
