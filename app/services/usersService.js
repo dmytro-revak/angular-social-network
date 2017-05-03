@@ -26,6 +26,8 @@ socialNetworkApp.factory('usersService', function ($http) {
         return (userPassword === enteredPassword);
     };
 
+    usersService.hasUserSuccessfulRegistered = false;
+
     usersService.addUser = function (user) {
         usersService.usersList.push(user);
     };

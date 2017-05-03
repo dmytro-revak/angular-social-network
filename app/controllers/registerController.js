@@ -1,6 +1,8 @@
 socialNetworkApp.controller('registerController', ['usersService', '$location', function (usersService, $location) {
     vm = this;
 
+    usersService.hasUserSuccessfulRegistered = false;
+
     vm.registerUser = function (isFormValid) {
         vm.newUser = {
             login: vm.login,
@@ -16,23 +18,14 @@ socialNetworkApp.controller('registerController', ['usersService', '$location', 
             messages: []
         };
 
-
-        if ( isFormValid && !vm.verificationDoesUserOccur() ) {
+        if (isFormValid) {
+            usersService.hasUserSuccessfulRegistered = true;
             usersService.addUser(vm.newUser);
             usersService.saveUsersListToStorage();
             $location.path('/login');
             vm.newUser = {};
         }
     };
-
-    vm.verificationDoesUserOccur = function () {
-        var doesUserOccur = usersService.verifyLogin(vm.login);
-        if (doesUserOccur) {
-            debugger
-        }
-        return doesUserOccur;
-    };
-            registerForm.firstName.$setValidity(false);
 
     vm.returnToLogin = function () {
         $location.path('/login');

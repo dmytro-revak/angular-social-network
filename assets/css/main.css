@@ -30,6 +30,10 @@ body {
     padding: 25px;
 }
 
+.ui.form.page-form .success.message {
+    display: block;
+}
+
 .ng-modal-overlay {
     position:absolute;
     z-index:9999;

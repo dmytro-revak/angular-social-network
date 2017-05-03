@@ -10,5 +10,8 @@
         </div>
         <button class="ui big positive button" type="button" ng-click="login.verifyUser()">Sign In</button>
         <button class="ui big secondary button" type="button" ng-click="login.registerUser()">Register</button>
+        <div class="ui mini success message" ng-if="login.successfulUserRegistration">
+            <p class="header">Your user registration was successful</p>
+        </div>
     </form>
 </div>

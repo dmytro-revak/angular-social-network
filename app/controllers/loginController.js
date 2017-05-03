@@ -4,12 +4,16 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
     vm.isLoginCorrect = true;
     vm.isPasswordCorrect = true;
 
+    vm.successfulUserRegistration = usersService.hasUserSuccessfulRegistered;
+
     vm.verifyUser = function () {
         vm.verifiedUser = usersService.verifyLogin(vm.login);
         vm.isLoginCorrect = Boolean(vm.verifiedUser);
         vm.isVerificationCorrect = usersService.verifyUserPassword(vm.verifiedUser, vm.password);
         vm.isPasswordCorrect = Boolean(vm.isVerificationCorrect);
         if (vm.isVerificationCorrect) {
+            usersService.activeUser = vm.verifiedUser;
+            usersService.saveActiveUserToStorage();
             $location.path('/userPage');
         }
     };
