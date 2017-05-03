@@ -1,11 +1,13 @@
-<div class="ui secondary menu user-page-heading">
-    <h1 class="ui header">Hello {{userPage.activeUser.firstName}}</h1>
-    <div class="right menu">
-        <button class="ui button black">Logout</button>
-    </div>
-</div>
-<div class="ui two column grid user-page-info">
+<div class="ui container">
     <div class="row">
+        <div class="ui secondary menu user-page-heading">
+            <h1 class="ui header">Hello {{userPage.activeUser.firstName}}</h1>
+            <div class="right menu">
+                <button class="ui button black">Logout</button>
+            </div>
+        </div>
+    </div>
+    <div class="ui two column grid user-page-info">
         <div class="four wide column">
             <div class="row">
                 <figure>
@@ -18,31 +20,45 @@
                 <button type="button">Add friends</button>
             </div>
         </div>
-        <div class="ten wide right floated column">
-            <h2 class="ui header">{{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}</h2>
-            <h4 class="ui header" ng-show="userPage.activeUser.phone">Phone: {{userPage.activeUser.phone}}</h4>
-            <h4 class="ui header" ng-show="userPage.activeUser.city">City: {{userPage.activeUser.city}}</h4>
-            <h4 class="ui header" ng-show="userPage.activeUser.country">Country: {{userPage.activeUser.country}}</h4>
-            <h4 class="ui header" ng-show="userPage.activeUser.github">GitHub: {{userPage.activeUser.github}}</h4>
-            <h4 class="ui header" ng-show="userPage.activeUser.skype">Skype: {{userPage.activeUser.skype}}</h4>
-            <h4 class="ui header" ng-show="userPage.activeUser.description">Description: {{userPage.activeUser.description}}</h4>
-            <button type="button" class="ui blue button" ng-click="userPage.addUserInfo()">Add information</button>
-            <form class="ui form">
-                <div class="field">
-                    <label>Topic</label>
-                    <input type="text" name="Topic" ng-model="userPage.topic">
+        <div class="ui eleven wide right floated column grid">
+            <div class="row">
+                <div class="column">
+                    <h2 class="ui header">{{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}</h2>
+                    <h4 class="ui header" ng-show="userPage.activeUser.phone">Phone: {{userPage.activeUser.phone}}</h4>
+                    <h4 class="ui header" ng-show="userPage.activeUser.city">City: {{userPage.activeUser.city}}</h4>
+                    <h4 class="ui header" ng-show="userPage.activeUser.country">Country: {{userPage.activeUser.country}}</h4>
+                    <h4 class="ui header" ng-show="userPage.activeUser.github">GitHub: {{userPage.activeUser.github}}</h4>
+                    <h4 class="ui header" ng-show="userPage.activeUser.skype">Skype: {{userPage.activeUser.skype}}</h4>
+                    <h4 class="ui header" ng-show="userPage.activeUser.description">Description: {{userPage.activeUser.description}}</h4>
                 </div>
-                <div class="field">
-                    <label>Message</label>
-                    <textarea name="message" ng-model="userPage.message"></textarea>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <button type="button" class="ui right floated blue button" ng-click="userPage.addUserInfo()">
+                        Add information
+                    </button>
                 </div>
-                <button type="button" class="ui green button" ng-click="userPage.sendtheMessage()">Send</button>
-            </form>
-            <div class="ui message" ng-repeat="message in userPage.activeUser.messages">
-                <div class="header">{{message.topic}}</div>
-                <p>{{message.message}}</p>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <form class="ui form">
+                        <div class="field">
+                            <label>Topic</label>
+                            <input type="text" name="Topic" ng-model="userPage.topic">
+                        </div>
+                        <div class="field">
+                            <label>Message</label>
+                            <textarea name="message" ng-model="userPage.message"></textarea>
+                        </div>
+                        <button type="button" class="ui green button" ng-click="userPage.sendtheMessage()">Send</button>
+                    </form>
+                    <div class="ui message" ng-repeat="message in userPage.activeUser.messages">
+                        <div class="header">{{message.topic}}</div>
+                        <p>{{message.message}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <modal-window ng-show="userPage.isAddInfoModalShow"></modal-window>
 </div>
-<modal-window ng-show="userPage.isAddInfoModalShow"></modal-window>
