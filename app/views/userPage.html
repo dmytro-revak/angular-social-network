@@ -8,16 +8,37 @@
         </div>
     </div>
     <div class="ui two column grid user-page-info">
-        <div class="four wide column">
+        <div class="ui four wide column grid">
             <div class="row">
-                <figure>
-                    <img class="ui medium circular image" src="http://placehold.it/100x100">
-                </figure>
-                <button type="button">Change</button>
+                <div class="column">
+                    <img class="ui medium circular image" src="http://placehold.it/150x150">
+                </div>
             </div>
-            <div class="friends">
-                <h3 class="ui header">Friends:</h3>
-                <button type="button">Add friends</button>
+            <div class="row">
+                <div class="column">
+                    <button type="button" class="fluid ui blue button">Change</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="friends">
+                        <h3 class="ui header">Friends:</h3>
+                        <div class="ui middle aligned selection animated divided list">
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui red button">&#10006;</div>
+                                </div>
+                                <img class="ui avatar image" src="/images/avatar2/small/lena.png">
+                                <div class="content">
+                                    <div class="header">
+                                        Lena
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="ui fluid green button">Add friends</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="ui eleven wide right floated column grid">
@@ -48,7 +69,7 @@
                         </div>
                         <div class="field">
                             <label>Message</label>
-                            <textarea name="message" ng-model="userPage.message"></textarea>
+                            <textarea name="message" rows="2" ng-model="userPage.message"></textarea>
                         </div>
                         <button type="button" class="ui green button" ng-click="userPage.sendtheMessage()">Send</button>
                     </form>
