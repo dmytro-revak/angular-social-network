@@ -14,7 +14,7 @@
         </div>
         <div class="field" ng-class="{'error-field': registerForm.password.$invalid && registerForm.password.$touched}">
             <label class="page-form__label">Password</label>
-            <input type="text" name="password" placeholder="123..." required ng-model="register.password">
+            <input type="password" name="password" placeholder="123..." required ng-model="register.password">
         </div>
         <button class="ui big positive button" type="button" ng-click="register.registerUser(registerForm.$valid)">Register</button>
         <button class="ui big secondary button" type="button" ng-click="register.returnToLogin()">Cancel</button>
