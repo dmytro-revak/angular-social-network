@@ -34,5 +34,17 @@ socialNetworkApp.factory('usersService', function ($http) {
         usersService.activeUser.messages.push(message);
     };
 
+    usersService.saveUsersListToStorage = function () {
+        sessionStorage.setItem('usersList', usersService.usersList);
+    };
+
+    usersService.saveActiveUserToStorage = function () {
+        sessionStorage.setItem('activeUser', usersService.activeUser);
+    };
+
+    usersService.getItemFromStorage = function (item) {
+        return sessionStorage.getItem(item);
+    };
+
     return usersService;
 });
