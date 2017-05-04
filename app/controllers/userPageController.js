@@ -1,7 +1,13 @@
-socialNetworkApp.controller('userPageController', ['usersService', function(usersService){
+socialNetworkApp.controller('userPageController', ['usersService', '$location', function(usersService, $location){
     var vm = this;
 
     vm.activeUser = usersService.getItemFromStorage('activeUser');
+
+    vm.LogOut = function () {
+        usersService.activeUser = {};
+        usersService.saveActiveUserToStorage();
+        $location.path('/login');
+    };
 
     vm.sendtheMessage = function() {
         vm.newMessage = {
