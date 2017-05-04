@@ -46,6 +46,7 @@ socialNetworkApp.factory('usersService', function ($http) {
     };
 
     usersService.addNewUserMessage = function(message) {
+        debugger
         if (usersService.activeUser.messages) {
             usersService.activeUser.messages.push(message);
         }

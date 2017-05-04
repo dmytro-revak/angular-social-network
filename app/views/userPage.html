@@ -96,7 +96,10 @@
                         <button type="button" class="ui green button" ng-click="userPage.sendMessage(userMessagesForm.$valid)">Send</button>
                     </form>
                     <div class="ui message" ng-repeat="message in userPage.activeUser.messages">
-                        <div class="header">{{message.topic}}</div>
+                        <div class="header">
+                            {{message.topic}}
+                        </div>
+                        <p>{{message.date | date: 'HH:mm:ss dd/MM/yyyy'}}</p>
                         <p>{{message.message}}</p>
                     </div>
                 </div>

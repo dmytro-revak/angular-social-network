@@ -1,7 +1,7 @@
 socialNetworkApp.controller('userPageController', ['usersService', '$location', function(usersService, $location){
     var vm = this;
 
-    vm.activeUser = usersService.getItemFromStorage('activeUser');
+    vm.activeUser = usersService.activeUser;
 
     vm.LogOut = function () {
         usersService.activeUser = {};
@@ -14,9 +14,11 @@ socialNetworkApp.controller('userPageController', ['usersService', '$location', 
             debugger
             var newMessage = {
                 topic: vm.topic,
-                message: vm.message
+                message: vm.message,
+                date: new Date()
             };
             usersService.addNewUserMessage(newMessage);
+            usersService.saveActiveUserToStorage();
         }
     };
 
