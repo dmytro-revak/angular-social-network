@@ -44,13 +44,35 @@
         <div class="ui eleven wide right floated column grid">
             <div class="row">
                 <div class="column">
-                    <h2 class="ui header">{{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}</h2>
-                    <h4 class="ui header" ng-show="userPage.activeUser.phone">Phone: {{userPage.activeUser.phone}}</h4>
-                    <h4 class="ui header" ng-show="userPage.activeUser.city">City: {{userPage.activeUser.city}}</h4>
-                    <h4 class="ui header" ng-show="userPage.activeUser.country">Country: {{userPage.activeUser.country}}</h4>
-                    <h4 class="ui header" ng-show="userPage.activeUser.github">GitHub: {{userPage.activeUser.github}}</h4>
-                    <h4 class="ui header" ng-show="userPage.activeUser.skype">Skype: {{userPage.activeUser.skype}}</h4>
-                    <h4 class="ui header" ng-show="userPage.activeUser.description">Description: {{userPage.activeUser.description}}</h4>
+                    <h2 class="ui dividing header">
+                        {{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}
+                    </h2>
+                    <div class="ui selection large list">
+                        <div class="item" ng-show="userPage.activeUser.phone">
+                            <div class="header">Phone</div>
+                            {{userPage.activeUser.phone}}
+                        </div>
+                        <div class="item" ng-show="userPage.activeUser.city">
+                            <div class="header">City</div>
+                            {{userPage.activeUser.city}}
+                        </div>
+                        <div class="item" ng-show="userPage.activeUser.country">
+                            <div class="header">Country</div>
+                            {{userPage.activeUser.country}}
+                        </div>
+                        <div class="item" ng-show="userPage.activeUser.github">
+                            <div class="header">GitHub</div>
+                            {{userPage.activeUser.github}}
+                        </div>
+                        <div class="item" ng-show="userPage.activeUser.skype">
+                            <div class="header">Skype</div>
+                            {{userPage.activeUser.skype}}
+                        </div>
+                        <div class="item" ng-show="userPage.activeUser.description">
+                            <div class="header">Description</div>
+                            {{userPage.activeUser.description}}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
