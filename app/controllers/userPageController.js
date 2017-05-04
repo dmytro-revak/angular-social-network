@@ -16,11 +16,8 @@ socialNetworkApp.controller('userPageController', ['usersService', '$location', 
                 message: vm.message,
                 date: new Date()
             };
-            debugger
             vm.activeUser.messages.push(newMessage);
-            // usersService.addNewUserMessage();
             usersService.saveUsersListToStorage();
-            // usersService.saveActiveUserToStorage();
         }
     };
 
