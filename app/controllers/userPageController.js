@@ -27,4 +27,5 @@ socialNetworkApp.controller('userPageController', ['usersService', '$location', 
         vm.isAddInfoModalShow = true;
     };
 
+
 }]);
