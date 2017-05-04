@@ -13,7 +13,7 @@ socialNetworkApp.controller('loginController', ['usersService', '$location', fun
         vm.isPasswordCorrect = Boolean(vm.isVerificationCorrect);
         if (vm.isVerificationCorrect) {
             vm.verifiedUser.isActive = true;
-            usersService.saveActiveUserToStorage();
+            usersService.saveUsersListToStorage();
             $location.path('/userPage');
         }
     };

@@ -1,25 +1,26 @@
 socialNetworkApp.controller('userPageController', ['usersService', '$location', function(usersService, $location){
     var vm = this;
 
-    vm.activeUser = usersService.activeUser;
+    vm.activeUser = usersService.getActiveUser();
 
     vm.LogOut = function () {
-        usersService.activeUser = {};
-        usersService.saveActiveUserToStorage();
+        vm.activeUser.isActive = false;
+        usersService.saveUsersListToStorage();
         $location.path('/login');
     };
 
     vm.sendMessage = function(isFormValid) {
         if (isFormValid) {
-            debugger
             var newMessage = {
                 topic: vm.topic,
                 message: vm.message,
                 date: new Date()
             };
-            usersService.addNewUserMessage(newMessage);
+            debugger
+            vm.activeUser.messages.push(newMessage);
+            // usersService.addNewUserMessage();
             usersService.saveUsersListToStorage();
-            usersService.saveActiveUserToStorage();
+            // usersService.saveActiveUserToStorage();
         }
     };
 

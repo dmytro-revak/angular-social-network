@@ -2,9 +2,24 @@ socialNetworkApp.factory('usersService', function ($http) {
 
     var usersService = {};
 
-    $http.get("./users.json").then(function(response) {
-        usersService.usersList = response.data;
-    });
+    usersService.saveUsersListToStorage = function () {
+        localStorage.removeItem('usersList');
+        var jsonUsersList = angular.toJson(usersService.usersList);
+        localStorage.setItem('usersList', jsonUsersList);
+    };
+
+    usersService.getUsersListFromStorage = function () {
+        var jsonItem = localStorage.getItem('usersList');
+        return angular.fromJson(jsonItem);
+    };
+
+    usersService.getUsersListWithAjax = function () {
+        $http.get("./users.json").then(function (response) {
+            usersService.usersList = response.data;
+        });
+    };
+
+    usersService.usersList = usersService.getUsersListFromStorage() || usersService.getUsersListWithAjax();
 
     usersService.verifyLogin = function (login) {
         var verifiedUser = null;
@@ -39,24 +54,6 @@ socialNetworkApp.factory('usersService', function ($http) {
         });
         return activeUser;
     };
-
-    usersService.saveUsersListToStorage = function () {
-        var jsonUsersList = angular.toJson(usersService.usersList);
-        localStorage.setItem('usersList', jsonUsersList);
-    };
-
-    // usersService.getUsersListFromStorage = function () {
-    //     var jsonItem = localStorage.getItem('usersList');
-    //     return angular.fromJson(jsonItem);
-    // };
-
-    usersService.addNewUserMessage = function(message) {
-        if (usersService.activeUser.messages) {
-            usersService.activeUser.messages.push(message);
-        }
-    };
-
-    // usersService.activeUser = usersService.getItemFromStorage('activeUser');
 
     return usersService;
 });
