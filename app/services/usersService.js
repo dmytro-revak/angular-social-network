@@ -37,15 +37,18 @@ socialNetworkApp.factory('usersService', function ($http) {
     };
 
     usersService.saveUsersListToStorage = function () {
-        localStorage.setItem('usersList', usersService.usersList);
+        var jsonUsersList = angular.toJson(usersService.usersList);
+        localStorage.setItem('usersList', jsonUsersList);
     };
 
     usersService.saveActiveUserToStorage = function () {
-        localStorage.setItem('activeUser', usersService.activeUser);
+        var jsonActiveUser = angular.toJson(usersService.activeUser);
+        localStorage.setItem('activeUser', jsonActiveUser);
     };
 
     usersService.getItemFromStorage = function (item) {
-        return localStorage.getItem(item);
+        var jsonItem = localStorage.getItem(item);
+        return angular.fromJson(jsonItem);
     };
 
     return usersService;

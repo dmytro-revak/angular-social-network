@@ -1,7 +1,7 @@
 socialNetworkApp.controller('userPageController', ['usersService', function(usersService){
     var vm = this;
 
-    vm.activeUser = usersService.activeUser;
+    vm.activeUser = usersService.getItemFromStorage('activeUser');
 
     vm.sendtheMessage = function() {
         vm.newMessage = {
