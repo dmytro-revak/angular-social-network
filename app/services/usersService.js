@@ -30,29 +30,33 @@ socialNetworkApp.factory('usersService', function ($http) {
         usersService.usersList.push(user);
     };
 
+    usersService.getActiveUser = function () {
+        var activeUser = {};
+        usersService.usersList.forEach(function (user) {
+            if (user.isActive) {
+                activeUser = user;
+            }
+        });
+        return activeUser;
+    };
+
     usersService.saveUsersListToStorage = function () {
         var jsonUsersList = angular.toJson(usersService.usersList);
         localStorage.setItem('usersList', jsonUsersList);
     };
 
-    usersService.saveActiveUserToStorage = function () {
-        var jsonActiveUser = angular.toJson(usersService.activeUser);
-        localStorage.setItem('activeUser', jsonActiveUser);
-    };
-
-    usersService.getItemFromStorage = function (item) {
-        var jsonItem = localStorage.getItem(item);
-        return angular.fromJson(jsonItem);
-    };
+    // usersService.getUsersListFromStorage = function () {
+    //     var jsonItem = localStorage.getItem('usersList');
+    //     return angular.fromJson(jsonItem);
+    // };
 
     usersService.addNewUserMessage = function(message) {
-        debugger
         if (usersService.activeUser.messages) {
             usersService.activeUser.messages.push(message);
         }
     };
 
-    usersService.activeUser = usersService.getItemFromStorage('activeUser');
+    // usersService.activeUser = usersService.getItemFromStorage('activeUser');
 
     return usersService;
 });

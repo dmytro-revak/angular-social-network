@@ -18,6 +18,7 @@ socialNetworkApp.controller('userPageController', ['usersService', '$location', 
                 date: new Date()
             };
             usersService.addNewUserMessage(newMessage);
+            usersService.saveUsersListToStorage();
             usersService.saveActiveUserToStorage();
         }
     };

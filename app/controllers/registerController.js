@@ -15,7 +15,8 @@ socialNetworkApp.controller('registerController', ['usersService', '$location', 
             skype: '',
             github: '',
             description: '',
-            messages: []
+            messages: [],
+            isActive: false
         };
 
         if (isFormValid) {
