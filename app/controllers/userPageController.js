@@ -9,12 +9,15 @@ socialNetworkApp.controller('userPageController', ['usersService', '$location', 
         $location.path('/login');
     };
 
-    vm.sendtheMessage = function() {
-        vm.newMessage = {
-            topic: vm.topic,
-            message: vm.message
+    vm.sendMessage = function(isFormValid) {
+        if (isFormValid) {
+            debugger
+            var newMessage = {
+                topic: vm.topic,
+                message: vm.message
+            };
+            usersService.addNewUserMessage(newMessage);
         }
-        usersService.addNewUserMessage(vm.newMessage);
     };
 
     vm.isAddInfoModalShow = false;

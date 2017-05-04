@@ -84,16 +84,16 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <form class="ui form">
+                    <form class="ui form" name="userMessagesForm">
                         <div class="field">
                             <label>Topic</label>
-                            <input type="text" name="Topic" ng-model="userPage.topic">
+                            <input type="text" name="Topic" required ng-model="userPage.topic">
                         </div>
                         <div class="field">
                             <label>Message</label>
-                            <textarea name="message" rows="2" ng-model="userPage.message"></textarea>
+                            <textarea name="message" rows="2" required ng-model="userPage.message"></textarea>
                         </div>
-                        <button type="button" class="ui green button" ng-click="userPage.sendtheMessage()">Send</button>
+                        <button type="button" class="ui green button" ng-click="userPage.sendMessage(userMessagesForm.$valid)">Send</button>
                     </form>
                     <div class="ui message" ng-repeat="message in userPage.activeUser.messages">
                         <div class="header">{{message.topic}}</div>

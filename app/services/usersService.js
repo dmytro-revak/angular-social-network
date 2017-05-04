@@ -6,8 +6,6 @@ socialNetworkApp.factory('usersService', function ($http) {
         usersService.usersList = response.data;
     });
 
-    usersService.activeUser = {};
-    
     usersService.verifyLogin = function (login) {
         var verifiedUser = null;
         for (var i = 0; i < usersService.usersList.length; i++) {
@@ -32,10 +30,6 @@ socialNetworkApp.factory('usersService', function ($http) {
         usersService.usersList.push(user);
     };
 
-    usersService.addNewUserMessage = function(message) {
-        usersService.activeUser.messages.push(message);
-    };
-
     usersService.saveUsersListToStorage = function () {
         var jsonUsersList = angular.toJson(usersService.usersList);
         localStorage.setItem('usersList', jsonUsersList);
@@ -50,6 +44,14 @@ socialNetworkApp.factory('usersService', function ($http) {
         var jsonItem = localStorage.getItem(item);
         return angular.fromJson(jsonItem);
     };
+
+    usersService.addNewUserMessage = function(message) {
+        if (usersService.activeUser.messages) {
+            usersService.activeUser.messages.push(message);
+        }
+    };
+
+    usersService.activeUser = usersService.getItemFromStorage('activeUser');
 
     return usersService;
 });
