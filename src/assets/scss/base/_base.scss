@@ -19,7 +19,7 @@ body {
     }
 
     .error-field input[type=text] {
-        @extend .error-field input[type=password];
+        @extend input[type=password];
     }
 
     .error-field label.page-form__label  {
