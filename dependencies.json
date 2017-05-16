@@ -1,0 +1,7 @@
+{
+    "js": [
+        "./node_modules/angular/angular.js",
+        "./node_modules/jquery/dist/jquery.js",
+        "./src/assets/libs/semantic-ui/semantic.min.js"
+    ]
+}
