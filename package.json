@@ -19,6 +19,8 @@
   "homepage": "https://github.com/dmytro-revak/angular-social-network#readme",
   "devDependencies": {
     "angular": "1.6.4",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.2.0",
