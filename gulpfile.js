@@ -5,13 +5,18 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     ngAnnotate = require('gulp-ng-annotate'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin');
+    uglify = require('gulp-uglify');
  
-gulp.task('pug', function() {
-    gulp.src('./src/**/*.pug')
+gulp.task('index', function() {
+    gulp.src('./src/index.pug')
         .pipe( pug() )
-        .pipe( gulp.dest('build/') );
+        .pipe( gulp.dest('build/app/') );
+});
+
+gulp.task('views', function() {
+    gulp.src('./src/views/*.pug')
+        .pipe( pug() )
+        .pipe( gulp.dest('build/app/views/') );
 });
 
 gulp.task('sass', function() {
@@ -33,8 +38,8 @@ gulp.task('jsApp', function() {
     gulp.src( require('./dependencies.json').jsApp )
         .pipe( ngAnnotate() )
         .pipe( uglify() )
-        .pipe( concat('main.js') )
-        .pipe( gulp.dest('build/app/js/') );
+        .pipe( concat('app.js') )
+        .pipe( gulp.dest('build/app/') );
 });
 
 gulp.task('server', function() {
@@ -43,19 +48,10 @@ gulp.task('server', function() {
         .pipe( gulp.dest('build/') );
 });
 
-gulp.task('img', function () {
-    gulp.src('./src/images/*')
-        .pipe( imagemin({
-            progressive: true,
-            optimizationLevel: 8
-        }) )
-        .pipe( gulp.dest('build/images') );
-});
-
 gulp.task('watch', function() {
     gulp.watch('src/**/*.scss', ['sass']);
     gulp.watch('src/**/*.pug', ['pug']);
     gulp.watch('src/**/*.js', ['jsLibs', 'jsApp', 'server']);
 });
 
-gulp.task('build', ['pug', 'sass', 'jsLibs', 'jsApp', 'server']);
+gulp.task('build', ['index', 'views', 'sass', 'jsLibs', 'jsApp', 'server']);
