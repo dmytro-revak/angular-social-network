@@ -1,36 +1,36 @@
 {
-  "name": "angular-social-network",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dmytro-revak/angular-social-network.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dmytro-revak/angular-social-network/issues"
-  },
-  "homepage": "https://github.com/dmytro-revak/angular-social-network#readme",
-  "devDependencies": {
-    "angular": "1.6.4",
-    "angular-route": "^1.6.4",
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-clean-css": "^3.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^3.2.0",
-    "gulp-ng-annotate": "^2.0.0",
-    "gulp-pug": "^3.3.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2",
-    "jquery": "^3.2.1"
-  }
+    "name": "angular-social-network",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dmytro-revak/angular-social-network.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dmytro-revak/angular-social-network/issues"
+    },
+    "homepage": "https://github.com/dmytro-revak/angular-social-network#readme",
+    "devDependencies": {
+        "angular": "1.6.4",
+        "angular-route": "1.6.4",
+        "body-parser": "^1.17.1",
+        "express": "^4.15.2",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^4.0.0",
+        "gulp-clean-css": "^3.2.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-imagemin": "^3.2.0",
+        "gulp-ng-annotate": "^2.0.0",
+        "gulp-pug": "^3.3.0",
+        "gulp-sass": "^3.1.0",
+        "gulp-uglify": "^2.1.2",
+        "jquery": "^3.2.1"
+    }
 }
