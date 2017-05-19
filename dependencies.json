@@ -1,7 +1,13 @@
 {
-    "js": [
-        "./node_modules/angular/angular.js",
+    "jsLibs": [
+        "./node_modules/angular/angular.min.js",
+        "./node_modules/angular-route/angular-route.min.js",
         "./node_modules/jquery/dist/jquery.js",
         "./src/assets/libs/semantic-ui/semantic.min.js"
+    ],
+    "jsApp": [
+        "./src/app/app.js",
+        "./src/app/config.js",
+        "./src/app/controllers/loginController.js"
     ]
 }

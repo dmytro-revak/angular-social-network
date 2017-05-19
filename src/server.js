@@ -5,13 +5,15 @@ var express = require('express'),
 
 var app = express();
 
-app.use('/public', express.static(__dirname + '/public'));
+app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/app', express.static(__dirname + '/app'));
 // app.use(express.static(__dirname + '/public'));
+// app.use(app.router);
 
-app.get("/", function(req,res){
+app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/index.html"));
 });
 
-app.listen("8080" , function(){
+app.listen(8080, function() {
     console.log("Listen on port 8080");
 });

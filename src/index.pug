@@ -3,7 +3,8 @@ html(lang="en")
 head
     meta(charset="UTF-8")
     title Social Network
-    link(rel="stylesheet" type="text/css" href="public/css/main.css")
-    script(src="./public/js/libs.js")
-    //- script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js")
-body
+    link(rel="stylesheet" type="text/css" href="./assets/css/main.css")
+    script(src="./assets/js/libs.js")
+body(ng-app="socialNetwork")
+    ng-view
+    script(src="./app/js/main.js")
