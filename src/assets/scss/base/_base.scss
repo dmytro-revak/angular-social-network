@@ -2,36 +2,36 @@ body {
     background-color: $networkGrey;
 }
 
-.page-form {
-    border-radius: 10px;
-
-    label.page-form__label {
-        color: #fff;
-        margin-bottom: 10px;
-    }
-}
- 
-.form {
-    box-shadow: 0 0 10px 5px #9f3a38;
-
-    .error-field input[type=password] {
-        box-shadow: 0 0 10px 5px #9f3a38;    
-    }
-
-    .error-field input[type=text] {
-        @extend input[type=password];
-    }
-
-    .error-field label.page-form__label  {
-        color: #9f3a38;
-    }
-    
-}
-
 .login-wrapper,
 .register-wrapper {
-    height: 100%;
+    min-height: 100%;
 }
+
+.network-form {
+    border-radius: 8px;
+
+    .field label.page-form__label {
+        color: #fff;
+        margin-bottom: 15px;
+    }                                           
+}
+ 
+// .form {
+//     box-shadow: 0 0 10px 5px #9f3a38;
+
+//     .error-field input[type=password] {
+//         box-shadow: 0 0 10px 5px #9f3a38;    
+//     }
+
+//     .error-field input[type=text] {
+//         @extend input[type=password];
+//     }
+
+//     .error-field label.page-form__label  {
+//         color: #9f3a38;
+//     }
+    
+// }
 
 .user-page-heading,
 .column.grid.user-page-info {
