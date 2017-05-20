@@ -36,7 +36,7 @@ gulp.task('jsLibs', function() {
 gulp.task('jsApp', function() {
     gulp.src( require('./dependencies.json').jsApp )
         .pipe( ngAnnotate() )
-        .pipe( uglify() )
+        // .pipe( uglify() )
         .pipe( concat('app.js') )
         .pipe( gulp.dest('build/app/') );
 });

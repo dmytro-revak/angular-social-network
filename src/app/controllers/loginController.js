@@ -1,8 +1,29 @@
-socialNetworkApp.controller('loginController', ['usersService', function(usersService) {
-   vm = this;
+socialNetworkApp.controller('loginController', ['usersService', '$http', function(usersService, $http) {
+   
+    vm = this;
 
-   console.log('login');
-   console.log(usersService.getUsersList);
-   console.log(usersService.getUsersList());
+    vm.isLoginCorrect;
+    vm.isPasswordCorrect;
+
+
+    vm.verifyUser = function(isFormValid) {
+
+        if (isFormValid) {
+            
+            var user = {
+                login: vm.login,
+                password: vm.password
+            };
+
+            $http.post('/userVerification', user).then(function (resp) {
+                vm.verifiedUser = resp.data;
+                TODO
+                user = {};
+                debugger
+            });
+
+        };
+    };
+
 
 }]);
