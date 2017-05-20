@@ -3,9 +3,7 @@ socialNetworkApp.controller('userPageController', ['usersService', '$location', 
 
     vm.activeUser = usersService.getActiveUser();
     
-    if (vm.activeUser) {
-
-    } else {
+    if (!vm.activeUser) {
         $location.path('/login');
     }
 
