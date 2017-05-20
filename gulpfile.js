@@ -10,11 +10,11 @@ var gulp = require('gulp'),
 gulp.task('index', function() {
     gulp.src('./src/index.pug')
         .pipe( pug() )
-        .pipe( gulp.dest('build/app/') );
+        .pipe( gulp.dest('build/') );
 });
 
 gulp.task('views', function() {
-    gulp.src('./src/views/*.pug')
+    gulp.src('./src/app/views/*.pug')
         .pipe( pug() )
         .pipe( gulp.dest('build/app/views/') );
 });
@@ -29,7 +29,7 @@ gulp.task('sass', function() {
 
 gulp.task('jsLibs', function() {
     gulp.src( require('./dependencies.json').jsLibs )
-        .pipe( uglify() )
+        // .pipe( uglify() )
         .pipe( concat('libs.js') )
         .pipe( gulp.dest('build/assets/js/') );
 });
@@ -37,7 +37,7 @@ gulp.task('jsLibs', function() {
 gulp.task('jsApp', function() {
     gulp.src( require('./dependencies.json').jsApp )
         .pipe( ngAnnotate() )
-        .pipe( uglify() )
+        // .pipe( uglify() )
         .pipe( concat('app.js') )
         .pipe( gulp.dest('build/app/') );
 });
@@ -50,7 +50,7 @@ gulp.task('server', function() {
 
 gulp.task('watch', function() {
     gulp.watch('src/**/*.scss', ['sass']);
-    gulp.watch('src/**/*.pug', ['pug']);
+    gulp.watch('src/**/*.pug', ['index', 'views']);
     gulp.watch('src/**/*.js', ['jsLibs', 'jsApp', 'server']);
 });
 

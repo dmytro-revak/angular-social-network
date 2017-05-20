@@ -10,7 +10,6 @@
         "skype": "dmytro-revak",
         "github": "frontend developer",
         "description" : "Hi, I am a nice guy",
-        "messages": [],
-        "isActive": false
+        "messages": []
     }
 ]

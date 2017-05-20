@@ -5,15 +5,26 @@ var express = require('express'),
 
 var app = express();
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/app', express.static(__dirname + '/app'));
-// app.use(express.static(__dirname + '/public'));
-// app.use(app.router);
 
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/index.html"));
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '/index.html'));
+});
+
+app.get('/getUsersList', function(req, res) {
+    fs.readFile('users.json', function(err, data) {
+        var usersList = JSON.parse(data);
+        console.log(usersList);
+        res.send(usersList);
+    });
 });
 
 app.listen(8080, function() {
-    console.log("Listen on port 8080");
+    console.log("Listen on  8080");
 });

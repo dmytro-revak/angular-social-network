@@ -1,20 +1,20 @@
 socialNetworkApp.config(function($routeProvider) {
     $routeProvider
     .when('/', {
-        redirectTo: '/login'
+        redirectTo: '/userPage'
     })
-    // .when('/userPage', {
-    //     templateUrl : 'app/views/userPage.html',
-    //     controller: 'userPageController',
-    //     controllerAs: 'userPage'
-    // })
+    .when('/userPage', {
+        templateUrl : '/app/views/userPage.html',
+        controller: 'userPageController',
+        controllerAs: 'userPage'
+    })
     .when('/login', {
-        templateUrl : 'app/views/login.html',
+        templateUrl : '/app/views/login.html',
         controller: 'loginController',
         controllerAs: 'login'
     })
-    // .when('/register', {
-    //     templateUrl : 'app/views/register.html',
+    // .when('register', {
+    //     templateUrl : '/app/views/register.html',
     //     controller: 'registerController',
     //     controllerAs: 'register'
     // })

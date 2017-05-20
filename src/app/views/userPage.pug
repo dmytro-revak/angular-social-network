@@ -1,0 +1,71 @@
+.ui.container
+  .row
+    .ui.secondary.menu.user-page-heading
+      h1.ui.header Hello {{userPage.activeUser.firstName}}
+      .right.menu
+        button.ui.button.black(ng-click='userPage.LogOut()') Logout
+  .ui.two.column.grid.user-page-info
+    .ui.four.wide.column.grid
+      .row
+        .column
+          img.ui.medium.circular.bordered.image(ng-src='https://robohash.org/userPage.activeUser.firstName + userPage.activeUser.lastName')
+      .row
+        .column
+          button.fluid.ui.blue.button(type='button') Change
+      .row
+        .column
+          .friends
+            h3.ui.header Friends:
+            .ui.middle.aligned.selection.animated.divided.list
+              .item
+                .right.floated.content
+                  .ui.red.button ✖
+                img.ui.avatar.bordered.image(src='https://robohash.org/lena')
+                .content
+                  .header
+                    | Lena
+            button.ui.fluid.green.button(type='button') Add friends
+    .ui.eleven.wide.right.floated.column.grid
+      .row
+        .column
+          h2.ui.dividing.header
+            | {{userPage.activeUser.firstName}} {{userPage.activeUser.lastName}}
+          .ui.selection.large.list
+            .item(ng-show='userPage.activeUser.phone')
+              .header Phone
+              |                             {{userPage.activeUser.phone}}
+            .item(ng-show='userPage.activeUser.city')
+              .header City
+              |                             {{userPage.activeUser.city}}
+            .item(ng-show='userPage.activeUser.country')
+              .header Country
+              |                             {{userPage.activeUser.country}}
+            .item(ng-show='userPage.activeUser.skype')
+              .header Skype
+              |                             {{userPage.activeUser.skype}}
+            .item(ng-show='userPage.activeUser.github')
+              .header GitHub
+              |                             {{userPage.activeUser.github}}
+            .item(ng-show='userPage.activeUser.description')
+              .header Description
+              |                             {{userPage.activeUser.description}}
+      .row
+        .column
+          button.ui.right.floated.blue.button(type='button', ng-click='userPage.addUserInfo()')
+            | Add information
+      .row
+        .column
+          form.ui.form(name='userMessagesForm')
+            .field
+              label Topic
+              input(type='text', name='Topic', required='', ng-model='userPage.topic')
+            .field
+              label Message
+              textarea(name='message', rows='2', required='', ng-model='userPage.message')
+            button.ui.green.button(type='button', ng-click='userPage.sendMessage(userMessagesForm.$valid)') Send
+          .ui.message(ng-repeat='message in userPage.activeUser.messages')
+            .header
+              | {{message.topic}}
+            p {{message.date | date: 'HH:mm:ss dd/MM/yyyy'}}
+            p {{message.message}}
+  modal-window(ng-show='userPage.isAddInfoModalShow')
