@@ -17,12 +17,13 @@ socialNetworkApp.controller('loginController', ['usersService', '$http', functio
 
             $http.post('/userVerification', user).then(function (resp) {
                 vm.verifiedUser = resp.data;
-                TODO
-                user = {};
-                debugger
+                console.log(vm.verifiedUser);
+                // TODO
+                // user = {};
+                // debugger
             });
 
-        };
+        }
     };
 
 

@@ -7,6 +7,6 @@ div(class="ui middle aligned center aligned grid login-wrapper")
             label(class="page-form__label") Password
             input(type="password" name="password" placeholder="Password" required ng-model="login.password")
         button(class="ui big positive button" type="button", ng-click="login.verifyUser(signInForm.$valid)") Sign In
-        button(class="ui big secondary button" type="button" ng-click="login.registerUser()") Register
+        button(class="ui big secondary button" type="button" ng-click="login.a()") Register
         div(class="ui mini success message")
             p(class="header") You have successfully registered

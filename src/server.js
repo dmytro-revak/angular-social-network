@@ -17,34 +17,55 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-app.get('/getUsersList', function(req, res) {
+app.post('/userVerification', function(req, res) {
+    var userEnteredData = req.body;
+
     fs.readFile('users.json', function(err, data) {
-        var usersList = JSON.parse(data);
-        console.log(usersList);
-        res.send(usersList);
+
+        var usersList = JSON.parse(data),
+            userForVerification = {},
+            verificationUserLogin = userEnteredData.login,
+            verificationUserPassword = userEnteredData.password,
+            isLoginCorrect = verifyLogin(verificationUserLogin, usersList),
+            isPasswordCorrect = false;
+
+        if (isLoginCorrect) {
+            userForVerification = getUser(verificationUserLogin, usersList);
+            isPasswordCorrect = verifyPassword(verificationUserPassword, userForVerification);
+        }
+
+        var verifiedUser = (isLoginCorrect && isPasswordCorrect) ? userForVerification : false;
+
+        res.send(verifiedUser);
     });
 });
 
-app.post('/userVerification', function(req, res) {
-    var userForVerification = req.body,
-        verifiedUser = null;
-
-    fs.readFile('users.json', function(err, data) {
-        var usersList = JSON.parse(data);
-        
-        usersList.forEach(function(currentUser) {    
-            var isLoginCorrect = userForVerification.login === currentUser.login,
-                isPasswordCorrect = userForVerification.password === currentUser.password;
-            if (isLoginCorrect && isPasswordCorrect) {
-                verifiedUser = currentUser;
-            }
-        });
-
-        res.send(verifiedUser);
-    })
-    
-})
-
 app.listen(8080, function() {
-    console.log("Listen on p 8080");
+    console.log("Listen on 8080");
 });
+
+function verifyLogin(login, usersList) {
+    var doesLoginExist = false;
+
+    for (var i = 0; i < usersList.length; i++) {
+        doesLoginExist = (login === usersList[i].login);
+        if (doesLoginExist) break;
+    }
+
+    return doesLoginExist;
+}
+
+function verifyPassword(password, user) {
+    return (password === user.password);
+}
+
+function getUser(login, usersList) {
+    var neededUser = {};
+    for (var i = 0; i < usersList.length; i++) {
+        if (usersList[i].login === login) {
+            neededUser = usersList[i];
+            break;
+        }
+    }
+    return neededUser;
+}
