@@ -1,9 +1,9 @@
 socialNetworkApp.controller('userPageController', ['usersService', '$location', function(usersService, $location){
     var vm = this;
 
-    vm.activeUser = usersService.getActiveUser();
+    vm.verifiedUser = localStorage.getItem('verifiedUser');
     
-    if (!vm.activeUser) {
+    if (!vm.verifiedUser) {
         $location.path('/login');
     }
 

@@ -1,4 +1,4 @@
-socialNetworkApp.controller('registerController', ['usersService', '$location', function (usersService, $location) {
+    socialNetworkApp.controller('registerController', ['usersService', '$location', function (usersService, $location) {
     vm = this;
 
     usersService.hasUserSuccessfulRegistered = false;

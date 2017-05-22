@@ -20,7 +20,7 @@ gulp.task('views', function() {
 });
 
 gulp.task('sass', function() {
-    gulp.src('./src/assets/scss/main.scss')
+    gulp.src('./src/assets/sass/main.sass')
         .pipe( sass() )
         .pipe( autopref() )
         .pipe( cleanCSS() )
@@ -53,10 +53,9 @@ gulp.task('users', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('src/**/*.scss', ['sass']);
+    gulp.watch('src/**/*.sass', ['sass']);
     gulp.watch('src/**/*.pug', ['index', 'views']);
     gulp.watch('src/app/**/*.js', ['jsApp']);
-    gulp.watch('src/server.js', ['server']);
     gulp.watch('src/server.js', ['server']);
 });
 
