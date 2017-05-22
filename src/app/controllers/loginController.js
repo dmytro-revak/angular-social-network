@@ -2,10 +2,6 @@ socialNetworkApp.controller('loginController', ['usersService', '$http', functio
    
     vm = this;
 
-    vm.isLoginCorrect;
-    vm.isPasswordCorrect;
-
-
     vm.verifyUser = function(isFormValid) {
 
         if (isFormValid) {
@@ -17,10 +13,6 @@ socialNetworkApp.controller('loginController', ['usersService', '$http', functio
 
             $http.post('/userVerification', user).then(function (resp) {
                 vm.verifiedUser = resp.data;
-                console.log(vm.verifiedUser);
-                // TODO
-                // user = {};
-                // debugger
             });
 
         }
