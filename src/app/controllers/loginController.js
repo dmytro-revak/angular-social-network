@@ -1,8 +1,9 @@
-socialNetworkApp.controller('loginController', ['$http', '$location', function($http, $location) {
+socialNetworkApp.controller('loginController', ['$http', '$location', 'usersService', function($http, $location, usersService) {
    
     vm = this;
 
     vm.isVerificationFailed = false;
+    vm.hasUserSuccessfulRegistered = usersService.hasUserSuccessfulRegistered;
 
     vm.verifyUser = function(isFormValid) {
 

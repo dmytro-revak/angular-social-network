@@ -2,23 +2,25 @@ socialNetworkApp.factory('usersService', function ($http) {
 
     var usersService = {};
 
+    usersService.hasUserSuccessfulRegistered = false;
+
     // usersService.saveUsersListToStorage = function () {
     //     localStorage.removeItem('usersList');
     //     var jsonUsersList = angular.toJson(usersService.usersList);
     //     localStorage.setItem('usersList', jsonUsersList);
     // };
 
-    usersService.getActiveUser = function () {
-        var activeUser = localStorage.getItem('activeUser');
-        return angular.fromJson(activeUser);
-    };
+    // usersService.getActiveUser = function () {
+    //     var activeUser = localStorage.getItem('activeUser');
+    //     return angular.fromJson(activeUser);
+    // };
 
-    usersService.getUsersList = function () {
-        $http.get('/getUsersList').then(function (response) {
-            usersService.usersList = response.data;
-            debugger
-        });
-    };
+    // usersService.getUsersList = function () {
+    //     $http.get('/getUsersList').then(function (response) {
+    //         usersService.usersList = response.data;
+    //         debugger
+    //     });
+    // };
 
     // usersService.usersList = usersService.getUsersListFromStorage() || usersService.getUsersListWithAjax();
 
