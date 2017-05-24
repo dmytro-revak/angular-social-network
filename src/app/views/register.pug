@@ -1,0 +1,16 @@
+div(class="ui middle aligned center aligned grid register-wrapper")
+    form(class="ui six wide column massive blue form network-form" name="registerForm")
+        div(class="field" ng-class="{'error-field': registerForm.firstName.$invalid && registerForm.firstName.$touched}")
+            label(class="page-form__label") First Name
+            input(type="text", name="firstName", placeholder="Jon", required, ng-model="register.firstName")
+        div(class="field" ng-class="{'error-field': registerForm.lastName.$invalid && registerForm.lastName.$touched}")
+            label(class="page-form__label") Last Name
+            input(type="text", name="lastName", placeholder="Doe", required, ng-model="register.lastName")
+        div(class="field" ng-class="{'error-field': registerForm.login.$invalid && registerForm.login.$touched}")
+            label(class="page-form__label") Login
+            input(type="text", name="login", placeholder="new_user", required, ng-model="register.login")
+        div(class="field" ng-class="{'error-field': registerForm.password.$invalid && registerForm.password.$touched}")
+            label(class="page-form__label") Password
+            input(type="password", name="password", placeholder="123...", required, ng-model="register.password")
+        button(class="ui big positive button" type="button", ng-click='register.registerUser(registerForm.$valid)') Register
+        button(class="ui big secondary button" type='button', ng-click='register.returnToLogin()') Cancel

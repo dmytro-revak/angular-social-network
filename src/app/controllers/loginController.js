@@ -21,6 +21,10 @@ socialNetworkApp.controller('loginController', ['$http', '$location', function($
         }
     };
 
+    vm.registerUser = function() {
+        $location.path('/register');
+    };
+
     function saveVerifiedUser(user) {
         if (user) {
             localStorage.setItem('verifiedUser', user);
