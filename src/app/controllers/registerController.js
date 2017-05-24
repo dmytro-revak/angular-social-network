@@ -1,10 +1,12 @@
-    socialNetworkApp.controller('registerController', ['usersService', '$location', function (usersService, $location) {
+    socialNetworkApp.controller('registerController', ['$http', '$location', function ($http, $location) {
+    
     vm = this;
 
-    usersService.hasUserSuccessfulRegistered = false;
+    vm.isRegistrationFailed = false;
 
     vm.registerUser = function (isFormValid) {
-        vm.newUser = {
+        debugger;
+        var newUser = {
             login: vm.login,
             password: vm.password,
             firstName: vm.firstName,
@@ -15,16 +17,18 @@
             skype: '',
             github: '',
             description: '',
-            messages: [],
-            isActive: false
+            messages: []
         };
-
         if (isFormValid) {
-            usersService.hasUserSuccessfulRegistered = true;
-            usersService.addUser(vm.newUser);
-            usersService.saveUsersListToStorage();
-            $location.path('/login');
-            vm.newUser = {};
+            $http.post('/userRegistration', newUser).then(function (resp) {
+                console.log(resp.data);
+                // saveVerifiedUser(verifiedUser);
+            });
+            // usersService.hasUserSuccessfulRegistered = true;
+            // usersService.addUser(vm.newUser);
+            // usersService.saveUsersListToStorage();
+            // $location.path('/login');
+            // vm.newUser = {};
         }
     };
 

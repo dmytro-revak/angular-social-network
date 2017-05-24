@@ -40,6 +40,27 @@ app.post('/userVerification', function(req, res) {
     });
 });
 
+app.post('/userRegistration', function(req, res) {
+    var userRegistrationData = req.body;
+
+    fs.readFile('users.json', function(err, data) {
+
+        var usersList = JSON.parse(data),
+            userRegistrationLogin = userRegistrationData.login,
+            isRegistrationSuccessful = !verifyLogin(userRegistrationLogin, usersList);
+
+        if (isRegistrationSuccessful) {
+            usersList.push(req.body);
+            var usersListJSON = JSON.stringify(usersList);
+            fs.writeFile('users.json', usersListJSON, function(err) {
+                if (err) throw err;
+            });
+        }
+
+        res.send(isRegistrationSuccessful);
+    });
+});
+
 app.listen(8080, function() {
     console.log("Listen on 8080");
 });

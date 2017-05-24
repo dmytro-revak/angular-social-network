@@ -10,6 +10,7 @@
         "./src/app/config.js",
         "./src/app/services/usersService.js",
         "./src/app/controllers/loginController.js",
+        "./src/app/controllers/registerController.js",
         "./src/app/controllers/userPageController.js"
     ]
 }
